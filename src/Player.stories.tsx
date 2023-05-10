@@ -50,6 +50,15 @@ const Template: ComponentStory<typeof Player> = ({ fluid, src }) => {
     action(act)(event)
   }
 
+  const plugins = {
+    airPlay: {
+      addButtonToControlBar: true,
+    },
+    chromecast: {
+      addButtonToControlBar: true,
+    },
+  }
+
   return (
     <Player
       src={src}
@@ -60,6 +69,7 @@ const Template: ComponentStory<typeof Player> = ({ fluid, src }) => {
       onSeeked={action('seeked')}
       onFullscreenChange={handleToggleFullscreen}
       onDispose={action('disposed')}
+      plugins={plugins}
     />
   )
 }
